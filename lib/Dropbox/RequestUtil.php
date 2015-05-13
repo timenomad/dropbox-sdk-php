@@ -251,6 +251,7 @@ final class RequestUtil
         if ($sc === 401) return new Exception_InvalidAccessToken($message);
         if ($sc === 500 || $sc === 502) return new Exception_ServerError($message);
         if ($sc === 503) return new Exception_RetryLater($message);
+        if ($sc === 507) return new Exception_OverQuota($message);
 
         return new Exception_BadResponseCode("Unexpected $message", $sc);
     }

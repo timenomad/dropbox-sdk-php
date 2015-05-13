@@ -1,4 +1,5 @@
 - WebAuth: Add support for "force_reapprove" parameter.
+- Add exception class for HTTP 507 error (over quota).
 
 ---------------------------------------------
 1.1.5 (2015-02-23)
