@@ -88,7 +88,7 @@ final class RequestUtil
 
         //$curl->set(CURLOPT_VERBOSE, true);  // For debugging.
         // TODO: Figure out how to encode clientIdentifier (urlencode?)
-        $curl->addHeader("User-Agent: ".$clientIdentifier." Dropbox-PHP-SDK");
+        $curl->addHeader("User-Agent: ".$clientIdentifier." Dropbox-PHP-SDK/".SdkVersion::VERSION);
 
         return $curl;
     }
