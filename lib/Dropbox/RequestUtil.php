@@ -19,6 +19,10 @@ if ($mbstring_func_overload & 2 == 2) {
 if (strlen((string) PHP_INT_MAX) < 19) {
     // Looks like we're running on a 32-bit build of PHP.  This could cause problems because some of the numbers
     // we use (file sizes, quota, etc) can be larger than 32-bit ints can handle.
+    
+    // AVOID "The Dropbox SDK uses 64-bit integers, but it looks like we're running on a version of PHP that doesn't support 64-bit integers (PHP_INT_MAX=2147483647)."
+    // on ARM servers
+    
     //throw new \Exception("The Dropbox SDK uses 64-bit integers, but it looks like we're running on a version of PHP that doesn't support 64-bit integers (PHP_INT_MAX=" . ((string) PHP_INT_MAX) . ").  Library: \"" . __FILE__ . "\"");
 }
 
