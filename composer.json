@@ -1,5 +1,5 @@
 {
-    "name": "timenomad/dropbox-sdk",
+    "name": "dropbox/dropbox-sdk",
     "description": "Dropbox SDK for PHP",
     "keywords" : [ "dropbox" ],
 
