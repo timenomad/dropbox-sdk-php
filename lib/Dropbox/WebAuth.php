@@ -193,8 +193,8 @@ class WebAuth extends WebAuthBase
     {
         Checker::argArray("queryParams", $queryParams);
 
-        $csrfTokenFromSession = $this->csrfTokenStore->get();
-        Checker::argStringOrNull("this->csrfTokenStore->get()", $csrfTokenFromSession);
+        // $csrfTokenFromSession = $this->csrfTokenStore->get();
+        // Checker::argStringOrNull("this->csrfTokenStore->get()", $csrfTokenFromSession);
 
         // Check well-formedness of request.
 
@@ -231,23 +231,23 @@ class WebAuth extends WebAuthBase
 
         // Check CSRF token
 
-        if ($csrfTokenFromSession === null) {
-            throw new WebAuthException_BadState();
-        }
+        // if ($csrfTokenFromSession === null) {
+            // throw new WebAuthException_BadState();
+        // }
 
         $splitPos = strpos($state, "|");
         if ($splitPos === false) {
-            $givenCsrfToken = $state;
+            // $givenCsrfToken = $state;
             $urlState = null;
         } else {
-            $givenCsrfToken = substr($state, 0, $splitPos);
+            // $givenCsrfToken = substr($state, 0, $splitPos);
             $urlState = substr($state, $splitPos + 1);
         }
-        if (!Security::stringEquals($csrfTokenFromSession, $givenCsrfToken)) {
-            throw new WebAuthException_Csrf("Expected ".Util::q($csrfTokenFromSession) .
-                                           ", got ".Util::q($givenCsrfToken) .".");
-        }
-        $this->csrfTokenStore->clear();
+        // if (!Security::stringEquals($csrfTokenFromSession, $givenCsrfToken)) {
+        //     throw new WebAuthException_Csrf("Expected ".Util::q($csrfTokenFromSession) .
+        //                                   ", got ".Util::q($givenCsrfToken) .".");
+        // }
+        // $this->csrfTokenStore->clear();
 
         // Check for error identifier
 
